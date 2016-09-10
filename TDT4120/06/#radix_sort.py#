@@ -1,0 +1,88 @@
+from sys import stdin
+from math import log
+#import random
+#from time import clock
+
+def getDigit(num, digitNum, base):
+    return (num // base ** digitNum) % base
+    
+def makeBuckets(size):
+    return [[] for i in xrange(size)]
+
+def split(A, digitNum, base):
+    buckets = makeBuckets(base)
+    for num in A:
+        buckets[getDigit(num,digitNum,base)].append(num)
+    return buckets
+
+def merge(A):
+    B = []
+    for a in A:
+        B.extend(a)
+    return B
+
+def maxAbs(A):
+    return max(abs(num) for num in A)
+
+def radix_sort(A, base=10):
+    n = int(round(log(maxAbs(A),base))+1)
+    B = A[:]
+    for digitNum in xrange(n):
+        B = merge(split(B,digitNum,base))
+    return B
+
+'''
+def makeUnsortedList(length):
+    A = []
+    random.seed()
+    for i in xrange(length):
+        A.append(random.randint(0,10000))
+    return A
+'''
+
+def main():
+    unsorted = []
+    unsorted = map(int, stdin.readline().split())
+    SORTED = radix_sort(unsorted)
+    print SORTED
+    for line in stdin:
+        nedre, ovre = map(int, line.split())
+        finn(SORTED, nedre, ovre)
+
+
+def finn(liste, nedre, ovre):
+    a, b = None, None
+    for i in xrange(len(liste)):
+        if (liste[i] <= nedre) and (liste[i+1] > nedre):
+            a = liste[i]
+        if (liste[i] 
+    
+
+main()
+
+
+
+#unsorted =  makeUnsortedList(100000)
+#t0 = clock()
+#sorted = radix_sort(unsorted)
+#t1 = clock()
+
+#T0 = clock()
+#unsorted.sort()
+#T1 = clock()
+
+#print "radix_sort:"
+#print t1-t0
+
+#print ".sort():"
+#print T1-T0
+
+
+
+
+
+
+
+
+
+

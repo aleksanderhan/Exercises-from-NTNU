@@ -1,0 +1,13 @@
+-The exercise was solved using microsoft visual studio 2010
+-Created a Web service named "Server" with "ASP.NET Web Service Application" using .NET Framework 3.5
+-Person and PersonList classes are made.
+-The Person class contains information about name and age.
+-The PersonList has methods for searching for Persons with name and age. The constructor makes a short list of some persons.
+-The web service creates an instance of the PersonList object.
+
+-Created a client using "Windows Forms Application"
+-Made a service reference to the web service.
+-Made a basic form, with buttons for "search" and "list all", and input and putput textboxes.
+-The client consumes the web service
+
+-To run the program locally, debug it to start whe webservice, then run the client.

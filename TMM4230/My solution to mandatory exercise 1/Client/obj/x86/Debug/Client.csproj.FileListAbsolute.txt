@@ -1,0 +1,8 @@
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\bin\Debug\Client.exe
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\bin\Debug\Client.exe.config
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\bin\Debug\Client.pdb
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\obj\x86\Debug\Client.Form1.resources
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\obj\x86\Debug\Client.Properties.Resources.resources
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\obj\x86\Debug\Client.csproj.GenerateResource.Cache
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\obj\x86\Debug\Client.exe
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Client\obj\x86\Debug\Client.pdb

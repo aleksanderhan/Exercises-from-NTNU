@@ -1,0 +1,4 @@
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Server\bin\Server.dll
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Server\bin\Server.pdb
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Server\obj\Debug\Server.dll
+c:\users\aleksander\documents\visual studio 2010\Projects\TMM4230\Server\obj\Debug\Server.pdb

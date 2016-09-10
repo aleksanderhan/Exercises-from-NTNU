@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<decision id="Where_to_travel">
+			<state id="Latvia" />
+			<state id="Iraq" />
+			<state id="North_Korea" />
+			<state id="South_Korea" />
+			<state id="USA" />
+		</decision>
+		<deterministic id="Travel_cost">
+			<state id="cheap" />
+			<state id="affordable" />
+			<state id="expensive" />
+			<parents>Where_to_travel</parents>
+			<resultingstates>cheap affordable expensive expensive affordable</resultingstates>
+		</deterministic>
+		<cpt id="Safety">
+			<state id="safe" />
+			<state id="unsafe" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.7 0.3 0.1 0.9 0.3 0.7 0.9 0.09999999999999998 0.7 0.3</probabilities>
+		</cpt>
+		<cpt id="Wind">
+			<state id="calm" />
+			<state id="breeze" />
+			<state id="storm" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.3 0.5 0.2 0.6 0.3 0.1 0.4 0.4 0.2 0.5 0.2 0.3 0.5 0.2 0.3</probabilities>
+		</cpt>
+		<cpt id="Humidity">
+			<state id="dry" />
+			<state id="wet" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.4 0.6 0.8 0.2 0.3 0.7 0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Temperature">
+			<state id="cold" />
+			<state id="temperate" />
+			<state id="hot" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.4 0.4 0.2 0.1 0.4 0.5 0.5 0.4 0.09999999999999998 0.4 0.4 0.2 0.3 0.4 0.3</probabilities>
+		</cpt>
+		<cpt id="Communication_dificulty">
+			<state id="yes" />
+			<state id="no" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.6 0.4 0.8 0.2 0.9 0.09999999999999998 0.5 0.5 0.1 0.9</probabilities>
+		</cpt>
+		<deterministic id="Travel_time_2">
+			<state id="short" />
+			<state id="medium" />
+			<state id="long" />
+			<parents>Where_to_travel</parents>
+			<resultingstates>short medium long long long</resultingstates>
+		</deterministic>
+		<cpt id="Accomodation_quality">
+			<state id="bad" />
+			<state id="decent" />
+			<state id="good" />
+			<parents>Where_to_travel</parents>
+			<probabilities>0.4 0.4 0.2 0.5 0.3 0.2 0.7 0.2 0.1 0.2000000000000001 0.5 0.2999999999999999 0.2 0.4 0.4</probabilities>
+		</cpt>
+		<deterministic id="Information_technology">
+			<state id="yes" />
+			<state id="no" />
+			<parents>Where_to_travel</parents>
+			<resultingstates>no no no yes yes</resultingstates>
+		</deterministic>
+		<utility id="Weather">
+			<parents>Wind Humidity Temperature</parents>
+			<utilities>3 5 4 2 4 3 2 4 3 1 3 2 1 3 2 0 2 1</utilities>
+		</utility>
+		<deterministic id="Enough_students">
+			<state id="yes" />
+			<state id="no" />
+			<resultingstates>no</resultingstates>
+		</deterministic>
+		<utility id="Excursion">
+			<parents>Enough_students</parents>
+			<utilities>1 0</utilities>
+		</utility>
+		<utility id="Travel">
+			<parents>Travel_time_2 Travel_cost</parents>
+			<utilities>4 3 2 3 2 1 2 1 0</utilities>
+		</utility>
+		<utility id="Trip">
+			<parents>Communication_dificulty Safety Information_technology Accomodation_quality</parents>
+			<utilities>3 4 5 2 3 4 2 3 4 1 2 3 2 3 4 1 2 3 1 2 3 0 1 2</utilities>
+		</utility>
+		<maux id="Utility">
+			<parents>Excursion Travel Trip Weather</parents>
+			<expression>(2*Travel+9*Trip+3*Weather)*Excursion</expression>
+		</maux>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5590.0" name="Network1" faultnameformat="nodestate">
+			<node id="Where_to_travel">
+				<name>Where to travel?</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>323 151 441 221</position>
+				<barchart active="true" width="128" height="108" />
+			</node>
+			<node id="Wind">
+				<name>Wind</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>221 377 264 403</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Humidity">
+				<name>Humidity</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>369 373 425 408</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+			<node id="Temperature">
+				<name>Temperature</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>508 434 581 479</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Travel_time_2">
+				<name>Travel_time</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>57 138 132 187</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Travel_cost">
+				<name>Travel_cost</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>146 236 222 286</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Communication_dificulty">
+				<name>Communication_dificulty</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>529 59 653 136</position>
+				<barchart active="true" width="151" height="54" />
+			</node>
+			<node id="Safety">
+				<name>Safety</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>561 239 610 269</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+			<node id="Accomodation_quality">
+				<name>Accomodation_quality</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>555 328 617 366</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Information_technology">
+				<name>Information_technology</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>527 137 649 213</position>
+				<barchart active="true" width="138" height="54" />
+			</node>
+			<node id="Weather">
+				<name>Weather</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>334 486 395 518</position>
+				<barchart active="true" width="128" height="36" />
+			</node>
+			<node id="Utility">
+				<name>Utility</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>583 591 628 623</position>
+				<barchart active="true" width="128" height="36" />
+			</node>
+			<node id="Travel">
+				<name>Travel</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>54 516 134 548</position>
+				<barchart active="true" width="128" height="36" />
+			</node>
+			<node id="Enough_students">
+				<name>Enough_students</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>833 22 928 81</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+			<node id="Trip">
+				<name>Trip</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>741 156 798 188</position>
+				<barchart active="true" width="128" height="36" />
+			</node>
+			<node id="Excursion">
+				<name>Excursion</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>855 353 912 385</position>
+				<barchart active="true" width="128" height="36" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
